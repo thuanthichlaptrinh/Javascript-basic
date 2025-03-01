@@ -1,0 +1,19 @@
+{
+    "courses": [
+        {
+            "id": 1,
+            "name": "Kiến thức cơ bản, tổng quan cho người mới bắt đầu",
+            "description": "Kiến thức cơ bản dành cho người mới bắt đầu"
+        },
+        {
+            "id": 2,
+            "name": "Xây dựng website với nodejs",
+            "description": "Xây dựng website với nodejs & Express js"
+        },
+        {
+            "id": 3,
+            "name": "Thiết kế web reponsive",
+            "description": "Kiến thức cơ bản dành cho người mới bắt đầu"
+        }
+    ]
+}

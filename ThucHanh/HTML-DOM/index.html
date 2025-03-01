@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Thực hành DOM</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            html {
+                color: #333;
+                font-size: 62.5%;
+                font-family: "Open Sans", sans-serif;
+            }
+            .main {
+                background: #f1f1f1;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+            }
+            .form {
+                width: 360px;
+                min-height: 100px;
+                padding: 32px 24px;
+                text-align: center;
+                background: #fff;
+                border-radius: 2px;
+                margin: 24px;
+                align-self: center;
+                box-shadow: 0 2px 5px 0 rgba(51, 62, 73, 0.1);
+            }
+            .form .heading {
+                font-size: 2rem;
+            }
+            .form .desc {
+                text-align: center;
+                color: #636d77;
+                font-size: 1.6rem;
+                font-weight: lighter;
+                line-height: 2.4rem;
+                margin-top: 16px;
+                font-weight: 300;
+            }
+
+            .form-group {
+                display: flex;
+                margin-bottom: 16px;
+                flex-direction: column;
+            }
+
+            .form-label,
+            .form-message {
+                text-align: left;
+            }
+
+            .form-label {
+                font-weight: 700;
+                padding-bottom: 6px;
+                line-height: 1.8rem;
+                font-size: 1.4rem;
+            }
+
+            .form-control {
+                height: 40px;
+                padding: 8px 12px;
+                border: 1px solid #b3b3b3;
+                border-radius: 3px;
+                outline: none;
+                font-size: 1.4rem;
+            }
+
+            .form-control:hover {
+                /* border-color: #1dbfaf; */
+                border-color: #1e272e;
+            }
+
+            .form-group.invalid .form-control {
+                border-color: #f33a58;
+            }
+
+            .form-group.invalid .form-message {
+                color: #f33a58;
+            }
+
+            .form-message {
+                font-size: 1.2rem;
+                line-height: 1.6rem;
+                padding: 4px 0 0;
+            }
+
+            .form-submit {
+                outline: none;
+                /* background-color: #1dbfaf; */
+                background-color: #1e272e;
+                margin-top: 12px;
+                padding: 12px 16px;
+                font-weight: 600;
+                color: #fff;
+                border: none;
+                width: 100%;
+                font-size: 14px;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+
+            .form-submit:hover {
+                opacity: 0.9;
+            }
+
+            .spacer {
+                margin-top: 36px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Form -->
+        <div class="main">
+            <form action="" method="POST" class="form" id="form-1">
+                <h3 class="heading">Đăng ký tài khoản</h3>
+                <p class="desc">Để trở thành thành viên của chúng tôi ❤️</p>
+
+                <div class="spacer"></div>
+
+                <div class="form-group">
+                    <label for="fullname" class="form-label">Tên đầy đủ</label>
+                    <input id="fullname" name="fullname" type="text" placeholder="VD: Sơn Đặng" class="form-control" />
+                    <span class="form-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                        id="email"
+                        name="email"
+                        type="text"
+                        placeholder="VD: email@domain.com"
+                        class="form-control"
+                    />
+                    <span class="form-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">Mật khẩu</label>
+                    <input
+                        id="password"
+                        name="password"
+                        type="password"
+                        placeholder="Nhập mật khẩu"
+                        class="form-control"
+                    />
+                    <span class="form-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
+                    <input
+                        id="password_confirmation"
+                        name="password_confirmation"
+                        placeholder="Nhập lại mật khẩu"
+                        type="password"
+                        class="form-control"
+                    />
+                    <span class="form-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender" class="form-label">Giới tính</label>
+                    <div>
+                        <input name="gender" type="checkbox" value="male" class="form-control" />
+                        Nam
+                    </div>
+                    <div>
+                        <input name="gender" type="checkbox" value="female" class="form-control" />
+                        Nu
+                    </div>
+                    <div>
+                        <input name="gender" type="checkbox" value="other" class="form-control" />
+                        Khac
+                    </div>
+                    <span class="form-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="province" class="form-label">Chọn tỉnh thành</label>
+                    <select id="province" name="province" class="form-control">
+                        <option value="">-- Chọn Tỉnh/TP --</option>
+                        <option value="hni">Hà Nội</option>
+                        <option value="hpg">Hải Phòng</option>
+                    </select>
+                    <span class="form-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="avatar" class="form-label">Chọn ảnh đại diện</label>
+                    <input id="avatar" name="avatar" type="file" class="form-control" />
+                    <span class="form-message"></span>
+                </div>
+
+                <button class="form-submit">Đăng ký</button>
+            </form>
+        </div>
+
+        <!-- Xử lý javascript -->
+        <script src="./validator.js"></script>
+        <script>
+            Validator({
+                form: "#form-1",
+                formGroupSelector: ".form-group",
+                errorSelector: ".form-message",
+                rules: [
+                    // Validator.isRequired("#fullname", "Vui lòng nhập tên đầy đủ của bạn"),
+                    // Validator.isRequired("#email", "Vui lòng nhập email"),
+                    // Validator.isEmail("#email"),
+                    // Validator.isRequired("#password", "Vui lòng nhập mật khẩu"),
+                    // Validator.isRequired('input[name="gender"]', "Vui lòng chọn giới tính"),
+                    // Validator.isRequired("#province", "Vui lòng chọn Tỉnh/TP"),
+                    // Validator.minLength("#password", 6), // bắt buộc nhập 6 kí tự
+                    // // Kiểm tra mk có trùng không
+                    // Validator.isRequired("#password_confirmation", "Mật khẩu nhập lại không khớp"),
+                    // Validator.isComfirmed(
+                    //     "#password_confirmation",
+                    //     function () {
+                    //         return document.querySelector("#form-1 #password").value;
+                    //     },
+                    //     "Mật khẩu nhập lại không khớp",
+                    // ),
+
+                    Validator.isRequired("#avatar", "Vui lòng chọn avatar"),
+                ],
+                // In ra tất cả dữ liệu thẻ input khi nhấn submit
+                onSubmit: function (data) {
+                    // Call API
+                    console.log(data);
+                },
+            });
+        </script>
+    </body>
+</html>
